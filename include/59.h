@@ -2,9 +2,9 @@
 #include <numeric>
 
 using namespace std;
-class Solution51 {
+class Solution59 {
 public:
-    //51 spiral matrix 2
+    //59 spiral matrix 2
     vector<vector<int>> generateMatrix(int n) {
       vector<vector<int>> out(n, vector<int>(n));
       int sign = 1;
