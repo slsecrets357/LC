@@ -7,37 +7,32 @@ public:
     //51 spiral matrix 2
     vector<vector<int>> generateMatrix(int n) {
       vector<vector<int>> out(n, vector<int>(n));
-      vector<int> nums(n, 1);
-      printf("n: %d\n", n);
-      for (int h = 0; h<n; h++) {
-        nums[h] *= n-h-1;
-        printf("nums[%d]: %d\n", h, nums[h]);
-      }
-      vector<int> diff = nums;
-      for (int h = 0; h<n-1; h++) {
-        diff[h+1] += diff[h];
-        printf("diff[%d]: %d\n", h, diff[h]);
-      }
-      int ptr1 = 0;
       int sign = 1;
       int sign_counter = 0;
-      int count = 0;
+      int count = 1;
+      int count2 = 0;
       bool rowIterate = true;
       int row = 0;
-      int col = 1;
+      int col = 0;
       int j = n;
       out[0][0] = 1;
-      out[n-1][n-1] = n*n;
-      for (int i = 1; i< n*n-1; i++) {
+      for (int i = 0; i< n*n; i++) {
+        // printf("row: %d, col: %d, num: %d\n", row, col, i+1);
         out[row][col] = i+1;
-        if((i-diff[ptr1]) % nums[ptr1] == 0 || (i-diff[ptr1]) == 0) {
+        count2++;
+        if(count2 >= j) {
+          count2 = 0;
+          // printf("here: i:%d, j:%d, count:%d\n", i, j, count);
           count++;
-          if(count >= nums[ptr1]) {
-            count = 0;
-            ptr1++;
-            if(sign_counter > 1) sign *= -1;
-          }
           sign_counter++;
+          if(sign_counter > 1) {
+            sign *= -1;
+            sign_counter = 0;
+          }
+          if(count >= 2) {
+            count = 0;
+            j--;
+          }
           rowIterate = !rowIterate;
         }
         if (rowIterate) {
