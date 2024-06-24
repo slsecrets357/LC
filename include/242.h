@@ -1,8 +1,12 @@
 #include <string>
+#include <set>
+#include <unordered_set>
 
 using namespace std;
 class Solution242 {
 public:
+
+    std::unordered_set s1;
     bool isAnagram(string s, string t) {
         int lettersS[26];
         int lettersT[26];
