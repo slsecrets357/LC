@@ -5,6 +5,7 @@ using namespace std;
 
 class Solution15 {
 public:
+    //s1
     vector<vector<int>> threeSum(vector<int>& nums) {
         vector<vector<int>> out;
         sort(nums.begin(), nums.end());
@@ -20,6 +21,35 @@ public:
                     uset.erase(c);
                 } else {
                     uset.insert(nums[j]);
+                }
+            }
+        }
+        return out;
+    }
+
+    //s2
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> out;
+        // unordered_set<vector<int>> uset;
+        sort(nums.begin(), nums.end());
+        for (int i =0; i< nums.size(); i++) {
+            if(nums[i] > 0) break;
+            if(i>0 && nums[i] == nums[i-1]) continue;
+            int j = i+1;
+            int k = nums.size()-1;
+            while (k>j) {
+                int c = nums[i] + nums[j] + nums[k];
+                if (c == 0) {
+                    // uset.insert({nums[i], nums[j], nums[k]});
+                    out.push_back(vector<int>{nums[i], nums[j], nums[k]});
+                    while (k>j && nums[j] == nums[j+1]) j++;
+                    while (k>j && nums[k] == nums[k-1]) k--;
+                    k--;
+                    j++;
+                } else if (c >0 ) {
+                    k--;
+                } else {
+                    j++;
                 }
             }
         }
