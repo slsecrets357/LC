@@ -46,6 +46,8 @@
     "xlocinfo": "cpp",
     "xlocnum": "cpp",
     "xmemory0": "cpp",
-    "xstddef": "cpp"
+    "xstddef": "cpp",
+    "functional": "cpp",
+    "iostream": "cpp"
   }
 }
