@@ -46,6 +46,20 @@
     "xlocinfo": "cpp",
     "xlocnum": "cpp",
     "xmemory0": "cpp",
-    "xstddef": "cpp"
+    "xstddef": "cpp",
+    "atomic": "cpp",
+    "bit": "cpp",
+    "charconv": "cpp",
+    "clocale": "cpp",
+    "ctime": "cpp",
+    "format": "cpp",
+    "iostream": "cpp",
+    "iterator": "cpp",
+    "locale": "cpp",
+    "optional": "cpp",
+    "xlocbuf": "cpp",
+    "xlocmes": "cpp",
+    "xlocmon": "cpp",
+    "xloctime": "cpp"
   }
 }
