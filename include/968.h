@@ -9,22 +9,24 @@ struct TreeNode {
 
 class Solution {
 public:
+    int result;
     int traversal(TreeNode* cur) {
-        
+        if(cur == nullptr) return 2;
+        int left = traversal(cur->left);
+        int right = traversal(cur->right);
+        if(left == 2 && right == 2) return 0;
+        if(left == 0 || right == 0) {
+            result++;
+            return 1;
+        }
+        if (left == 1 || right == 1) {
+            return 2;
+        }
+        return -1;
     }
     int minCameraCover(TreeNode* root) {
-        TreeNode* left = root->left;
-        TreeNode* right = root->right;
-        if(left == nullptr && right == nullptr) {
-            return 0;
-        } else if(left == nullptr) {
-            return minCameraCover(right) + 0.5;
-        } else if(right == nullptr) {
-            return minCameraCover(left) + 0.5;
-        } else {
-            int minLeft = minCameraCover(left);
-            int minRight = minCameraCover(right);
-            return 1+minLeft+minRight;
-        }
+        result = 0;
+        if(traversal(root) == 0) result++;
+        return result;
     }
 };
